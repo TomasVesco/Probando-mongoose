@@ -100,6 +100,7 @@ async function CRUD() {
         // console.log(lecturaDeUsuarios);
 
 
+
         /* ---------------------------------- */
         /*         ORDEN ALFABETICO           */
         /* ---------------------------------- */
@@ -178,6 +179,59 @@ async function CRUD() {
         // notas.promedioCurso1A = notas.sumaNotasA1 / notas.totalAlumnos1A;
 
         // console.log(notas);
+
+
+
+        /* -------------------------------------------------------- */
+        /*          Update del DNI de un usuario por su ID          */
+        /* -------------------------------------------------------- */
+        // await model.usuarios.updateOne({"_id": '625a4ef65922a4d73d5cddf8'},{$set: {'dni': 20355875}});
+
+
+
+        /* -------------------------------------------------------- */
+        /*  Update a todos los documentos de la coleccion usuarios  */
+        /* -------------------------------------------------------- */
+        // await model.usuarios.updateMany({},{$set: {'ingreso': false}});
+
+
+
+        /* -------------------------------------------------------- */
+        /*          Update del DNI de un usuario por su ID          */
+        /* -------------------------------------------------------- */
+        // await model.usuarios.updateMany({'curso': '1A'},{$set: {'ingreso': true}});
+
+
+
+        /* -------------------------------------------------------- */
+        /*         Listar estudiantes aprobados (nota > 4)          */
+        /* -------------------------------------------------------- */
+        // let aprobados = await model.usuarios.find({'nota': {$gt: 3}},{'_id': false, '__v': false});
+        // console.log(aprobados);
+
+
+
+        /* -------------------------------------------------------- */
+        /*         Listar estudiantes que hayan ingresado           */
+        /* -------------------------------------------------------- */
+        // let estudiantesIngresados = await model.usuarios.find({'ingreso': true},{'_id': false, '__V': false});
+        // console.log(estudiantesIngresados);
+
+
+
+        /* -------------------------------------------------------- */
+        /*        Borrarndo los estudiantes con ingreso true        */
+        /* -------------------------------------------------------- */
+        // await model.usuarios.deleteMany({'ingreso': true});
+
+
+
+        /* -------------------------------------------------------- */
+        /*                 Colección con timestamp                  */
+        /* -------------------------------------------------------- */
+        // let lecturaDeUsuarios = await model.usuarios.find({},{'__v': false});
+
+        // lecturaDeUsuarios.forEach(e => console.log(`${e} Fecha de creacion: ${e._id.getTimestamp()}`));
 
     }catch(err) {
         console.log(err);
